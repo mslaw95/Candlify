@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Candlify.Application\Candlify.Application.csproj" />
+    <ProjectReference Include="..\Candlify.Infrastructure\Candlify.Infrastructure.csproj" />
+    <ProjectReference Include="..\Persistence\Candlify.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
