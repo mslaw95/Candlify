@@ -7,31 +7,45 @@ namespace Candlify.Persistence.Repositories
     public class BaseRepository<T>(MongoDbContext<T> dbContext) : IBaseRepository<T>
         where T : class
     {
-        private readonly IMongoCollection<T> _collection = dbContext.GetCollection<T>();
+        protected readonly IMongoCollection<T> Collection = dbContext.GetCollection();
 
         public async Task<T> GetByIdAsync(Guid id)
         {
-            return await _collection.Find(Builders<T>.Filter.Eq("id", id)).FirstOrDefaultAsync();
+            return await Collection.Find(Builders<T>.Filter.Eq("_id", id)).FirstOrDefaultAsync();
         }
 
         public async Task<IReadOnlyCollection<T>> ListAllAsync()
         {
-            return await _collection.Find(new BsonDocument()).ToListAsync();
+            return await Collection.Find(new BsonDocument()).ToListAsync();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<T> CreateAsync(T entity)
         {
-            await _collection.InsertOneAsync(entity);
+            await Collection.InsertOneAsync(entity);
+            var idProperty = typeof(T).GetProperty("Id");
+            var entityId = idProperty?.GetValue(entity);
+            if (entityId == null || entityId.Equals(ObjectId.Empty))
+            {
+                throw new Exception("Failed to insert candle into the Database. No Id generated.");
+            }
+
+            return entity;
         }
 
-        public async Task UpdateAsync(Guid id, T entity)
+        public async Task<T> UpdateByIdAsync(Guid id, T entity)
         {
-            await _collection.ReplaceOneAsync(Builders<T>.Filter.Eq("id", id), entity);
+            var result = await Collection.ReplaceOneAsync(Builders<T>.Filter.Eq("_id", id), entity);
+            if (!result.IsAcknowledged)
+            {
+                throw new Exception("Failed to update candle.");
+            }
+
+            return entity;
         }
 
-        public async Task RemoveAsync(Guid id)
+        public async Task RemoveByIdAsync(Guid id)
         {
-            await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("id", id));
+            await Collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", id));
         }
     }
 }

@@ -15,17 +15,17 @@ namespace Candlify.Persistence
             services.AddSingleton<IMongoClient>(new MongoClient(configuration["MongoDbSettings:ConnectionString"] ?? throw new ArgumentNullException()));
 
             // DbContext
-            services.AddScoped<MongoDbContext<Event>>(sp =>
-                new MongoDbContext<Event>(
+            services.AddScoped<MongoDbContext<Candle>>(sp =>
+                new MongoDbContext<Candle>(
                     sp.GetRequiredService<IMongoClient>(),
                     configuration["MongoDbSettings:DatabaseName"] ?? throw new ArgumentNullException(),
-                    "events"));
+                    "candles"));
 
             // Repositories
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
-            services.AddScoped<IEventRepository>(sp =>
-                new EventRepository(sp.GetRequiredService<MongoDbContext<Event>>()));
+            services.AddScoped<ICandleRepository>(sp =>
+                new CandleRepository(sp.GetRequiredService<MongoDbContext<Candle>>()));
 
             return services;
         }

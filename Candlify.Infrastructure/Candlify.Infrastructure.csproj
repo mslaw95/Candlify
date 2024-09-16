@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Candlify.Application\Candlify.Application.csproj" />
+    <ProjectReference Include="..\Persistence\Candlify.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

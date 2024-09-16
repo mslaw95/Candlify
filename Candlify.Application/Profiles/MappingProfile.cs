@@ -1,7 +1,8 @@
 ﻿using Candlify.Domain.Entities; 
 using AutoMapper;
-using Candlify.Application.Features.Events.Commands.CreateEvent;
-using Candlify.Application.Features.Events.Queries.GetEventList;
+using Candlify.Application.Features.Candles.Commands.CreateCandle;
+using Candlify.Application.Features.Candles.Commands.UpdateCandle;
+using Candlify.Application.Features.Candles.Queries.GetCandleList;
 
 namespace Candlify.Application.Profiles
 {
@@ -9,8 +10,13 @@ namespace Candlify.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Event, EventsListVm>().ReverseMap();
-            CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<Candle, CandlesListVm>().ReverseMap();
+            CreateMap<Candle, CreateCandleCommand>().ReverseMap();
+            CreateMap<Candle, UpdateCandleByIdCommand>().ReverseMap();
+
+            CreateMap<CandleVm, Candle>().ReverseMap();
+            CreateMap<CandleVm, CreateCandleCommand>().ReverseMap();
+            CreateMap<CandleVm, UpdateCandleByIdCommand>().ReverseMap();
         }
     }
 }

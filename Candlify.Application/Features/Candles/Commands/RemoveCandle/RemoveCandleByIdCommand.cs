@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace Candlify.Application.Features.Events.Queries.GetEventList
+namespace Candlify.Application.Features.Candles.Commands.RemoveCandle
 {
-    public class EventsListVm
+    public class RemoveCandleByIdCommand : IRequest<RemoveCandleByIdCommandResponse>
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
     }
 }

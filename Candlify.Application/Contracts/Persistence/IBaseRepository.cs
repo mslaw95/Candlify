@@ -10,8 +10,8 @@ namespace Candlify.Application.Contracts.Persistence
     {
         Task<T> GetByIdAsync(Guid id);
         Task<IReadOnlyCollection<T>> ListAllAsync();
-        Task AddAsync(T entity);
-        Task UpdateAsync(Guid id, T entity);
-        Task RemoveAsync(Guid id);
+        Task<T> CreateAsync(T entity);
+        Task<T> UpdateByIdAsync(Guid id, T entity);
+        Task RemoveByIdAsync(Guid id);
     }
 }

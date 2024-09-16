@@ -7,20 +7,13 @@ using MongoDB.Driver;
 
 namespace Candlify.Persistence
 {
-    public class MongoDbContext<T>
+    public class MongoDbContext<T>(IMongoClient client, string databaseName, string collectionName)
     {
-        private readonly IMongoDatabase _database;
-        private readonly string _collectionName;
+        private readonly IMongoDatabase _database = client.GetDatabase(databaseName);
 
-        public MongoDbContext(IMongoClient client, string databaseName, string collectionName)
+        public IMongoCollection<T> GetCollection()
         {
-            _database = client.GetDatabase(databaseName);
-            _collectionName = collectionName;
-        }
-
-        public IMongoCollection<T> GetCollection<T>()
-        {
-            return _database.GetCollection<T>(_collectionName);
+            return _database.GetCollection<T>(collectionName);
         }
     }
 }
