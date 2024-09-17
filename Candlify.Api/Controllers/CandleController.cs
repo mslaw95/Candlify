@@ -3,6 +3,7 @@ using Candlify.Application.Features.Candles.Commands.RemoveCandle;
 using Candlify.Application.Features.Candles.Commands.UpdateCandle;
 using Candlify.Application.Features.Candles.Queries.GetCandleById;
 using Candlify.Application.Features.Candles.Queries.GetCandleList;
+using Candlify.Application.Models;
 using Candlify.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

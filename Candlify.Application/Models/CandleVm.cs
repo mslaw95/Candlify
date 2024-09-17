@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Candlify.Domain.Entities
+namespace Candlify.Application.Models
 {
     public class CandleVm
     {

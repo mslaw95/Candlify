@@ -1,4 +1,5 @@
-﻿using Candlify.Application;
+﻿using Candlify.Api.Middleware;
+using Candlify.Application;
 using Candlify.Persistence;
 
 namespace Candlify.Api
@@ -33,6 +34,8 @@ namespace Candlify.Api
                 app.UseSwaggerUI();
                 app.UseCors("AllowAllOrigins");
             }
+
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseAuthorization();

@@ -1,4 +1,4 @@
-﻿namespace Candlify.Application.Features.Candles.Queries.GetCandleList
+﻿namespace Candlify.Application.Models
 {
     public class CandlesListVm
     {

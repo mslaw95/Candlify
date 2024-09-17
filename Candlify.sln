@@ -24,9 +24,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candlify.Application", "Can
 		{C13FB843-0A85-4D57-BC6F-E74B192A88B0} = {C13FB843-0A85-4D57-BC6F-E74B192A88B0}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candlify.Persistence", "Persistence\Candlify.Persistence.csproj", "{8DAD98BC-8C46-4AF1-9233-0A7D61FF60F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candlify.Persistence", "Persistence\Candlify.Persistence.csproj", "{8DAD98BC-8C46-4AF1-9233-0A7D61FF60F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candlify.Infrastructure", "Candlify.Infrastructure\Candlify.Infrastructure.csproj", "{368E9DFD-3135-4E00-B030-95C470403B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Candlify.Infrastructure", "Candlify.Infrastructure\Candlify.Infrastructure.csproj", "{368E9DFD-3135-4E00-B030-95C470403B4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Candlify.Application.UnitTests", "Candlify.Application.UnitTests\Candlify.Application.UnitTests.csproj", "{23DFD6F9-5776-4939-BA48-24EC1E5927A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{368E9DFD-3135-4E00-B030-95C470403B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{368E9DFD-3135-4E00-B030-95C470403B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{368E9DFD-3135-4E00-B030-95C470403B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23DFD6F9-5776-4939-BA48-24EC1E5927A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DFD6F9-5776-4939-BA48-24EC1E5927A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DFD6F9-5776-4939-BA48-24EC1E5927A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DFD6F9-5776-4939-BA48-24EC1E5927A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{AE9D6FB7-691A-4CBC-A4F5-9DF71806ACCE} = {AC5406E7-667C-4DAE-90C9-EBC8072A00A3}
 		{8DAD98BC-8C46-4AF1-9233-0A7D61FF60F9} = {E284614C-FE86-4EDD-A75C-86D5A850D5F4}
 		{368E9DFD-3135-4E00-B030-95C470403B4D} = {E284614C-FE86-4EDD-A75C-86D5A850D5F4}
+		{23DFD6F9-5776-4939-BA48-24EC1E5927A6} = {328410A8-8C0A-4E48-8209-EBD7A03150D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C570C84-8834-48F4-B058-6DD98CD4B20D}

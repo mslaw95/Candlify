@@ -9,12 +9,12 @@ namespace Candlify.Persistence.Repositories
     {
         protected readonly IMongoCollection<T> Collection = dbContext.GetCollection();
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T?> GetByIdAsync(Guid id)
         {
             return await Collection.Find(Builders<T>.Filter.Eq("_id", id)).FirstOrDefaultAsync();
         }
 
-        public async Task<IReadOnlyCollection<T>> ListAllAsync()
+        public async Task<IReadOnlyCollection<T?>> ListAllAsync()
         {
             return await Collection.Find(new BsonDocument()).ToListAsync();
         }

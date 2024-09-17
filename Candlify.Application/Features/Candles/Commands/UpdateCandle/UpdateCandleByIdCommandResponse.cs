@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Candlify.Application.Models;
 using Candlify.Application.Responses;
-using Candlify.Domain.Entities;
 
 namespace Candlify.Application.Features.Candles.Commands.UpdateCandle
 {

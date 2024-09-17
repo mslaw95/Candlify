@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Candlify.Application.Contracts.Persistence;
+using Candlify.Application.Exceptions;
+using Candlify.Application.Models;
 using Candlify.Domain.Entities;
 using MediatR;
 
@@ -15,12 +17,7 @@ namespace Candlify.Application.Features.Candles.Commands.CreateCandle
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (validationResult.Errors.Count > 0)
             {
-                createCandleCommandResponse.Success = false;
-                createCandleCommandResponse.ValidationErrors = [];
-                foreach (var error in validationResult.Errors)
-                {
-                    createCandleCommandResponse.ValidationErrors.Add(error.ErrorMessage);
-                }
+                throw new ValidationException(validationResult);
             }
             else
             {

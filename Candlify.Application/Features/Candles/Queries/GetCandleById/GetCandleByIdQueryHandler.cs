@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Candlify.Application.Contracts.Persistence;
-using Candlify.Domain.Entities;
+using Candlify.Application.Models;
 using MediatR;
 
 namespace Candlify.Application.Features.Candles.Queries.GetCandleById

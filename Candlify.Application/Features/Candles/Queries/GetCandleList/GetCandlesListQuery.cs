@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Candlify.Application.Models;
+using MediatR;
 
 namespace Candlify.Application.Features.Candles.Queries.GetCandleList
 {

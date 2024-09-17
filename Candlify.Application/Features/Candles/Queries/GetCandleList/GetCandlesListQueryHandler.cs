@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Candlify.Application.Contracts.Persistence;
-using Candlify.Domain.Entities;
+using Candlify.Application.Models;
 using MediatR;
 
 namespace Candlify.Application.Features.Candles.Queries.GetCandleList
@@ -11,7 +11,7 @@ namespace Candlify.Application.Features.Candles.Queries.GetCandleList
         public async Task<List<CandlesListVm>> Handle(GetCandlesListQuery request,
             CancellationToken cancellationToken)
         {
-            var candles = (await candleRepository.ListAllAsync()).OrderBy(x => x.Name);
+            var candles = (await candleRepository.ListAllAsync()).OrderBy(x => x?.Name);
             return mapper.Map<List<CandlesListVm>>(candles);
         }
     }
